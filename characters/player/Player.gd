@@ -9,6 +9,7 @@ onready var health_manager = $HealthManager
 var dead = false
 
 func _ready():
+	# Layer: who you are, Mask: what you collide with (in editor)
 	# makes mouse invisible, and keeps it at the center of the screen
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	character_mover.init(self)

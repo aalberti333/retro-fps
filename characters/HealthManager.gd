@@ -27,8 +27,10 @@ func hurt(damage: int, dir: Vector3):
 	if cur_health <= gib_at:
 		pass # TODO: make gibs spawner
 		emit_signal("gibbed")
+		print('gibbed')
 	if cur_health <= 0:
 		emit_signal("dead")
+		print('dead')
 	else:
 		emit_signal("hurt")
 	emit_signal("health_changed", cur_health)
