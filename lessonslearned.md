@@ -8,3 +8,5 @@ This is for general knowledge that's picked up during the course for future refe
 * Layer: what exists on you (who you are, your hit boxes, etc.), Mask: what you collide with
 
 * Connecting signals can be done programatically (ex: `health_manager.connect("dead", self, "kill")`)
+
+* `posmod()` used to get a positive modulus result when using negative numbers

@@ -1,11 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://characters/CharacterMover.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=2]
 [ext_resource path="res://characters/HealthManager.gd" type="Script" id=3]
+[ext_resource path="res://characters/player/WeaponManager.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SphereMesh" id=3]
+
+[sub_resource type="CylinderMesh" id=4]
+
+[sub_resource type="PrismMesh" id=5]
 
 [node name="Player" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -29,6 +38,35 @@ script = ExtResource( 3 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Timer2" type="Timer" parent="."]
+
+[node name="WeaponManager" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627376, -0.609678 )
+script = ExtResource( 4 )
+
+[node name="Weapons" type="Spatial" parent="WeaponManager"]
+
+[node name="Machete" type="MeshInstance" parent="WeaponManager/Weapons"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.27245, 0, 0 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MachineGun" type="MeshInstance" parent="WeaponManager/Weapons"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.27245, 0, 0 )
+visible = false
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Shotgun" type="MeshInstance" parent="WeaponManager/Weapons"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.27245, 0, 0 )
+visible = false
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="RocketLauncher" type="MeshInstance" parent="WeaponManager/Weapons"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.27245, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
 
 [connection signal="timeout" from="Timer" to="." method="hurt" binds= [ 60, Vector3( 0, 0, 0 ) ]]
 [connection signal="timeout" from="Timer2" to="." method="heal" binds= [ 5 ]]
