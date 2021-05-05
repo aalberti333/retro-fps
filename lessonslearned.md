@@ -10,3 +10,7 @@ This is for general knowledge that's picked up during the course for future refe
 * Connecting signals can be done programatically (ex: `health_manager.connect("dead", self, "kill")`)
 
 * `posmod()` used to get a positive modulus result when using negative numbers
+
+* To stop weapons from clipping into walls, scale it down and place it in front of the player, and within the player's collider.
+
+* Always make sure positions/rotations/scale of parent and child nodes are similar (in case of the machete, this lead to issues with the animation player)
