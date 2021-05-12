@@ -13,4 +13,6 @@ This is for general knowledge that's picked up during the course for future refe
 
 * To stop weapons from clipping into walls, scale it down and place it in front of the player, and within the player's collider.
 
-* Always make sure positions/rotations/scale of parent and child nodes are similar (in case of the machete, this lead to issues with the animation player)
+* Always make sure positions/rotations/scale of parent and child nodes are similar (in case of the machete, this lead to issues with the animation player). Also, scaling sizes of objects (`.glb` files) should be done directly on the objects, not their parents (miziziziz scales on objects and keyframed the spatial parent, where I scaled on the spatial parent *in addition to* keyframing on the parent. My mistake lead to difficulties in key framing the graphics. That is, I couldn't reset them back to zero, I had to remember what the previous z value was for example)
+
+* Try to keep animation names consistent (all lowercase, had an oops in this project where `Idle` was used instead of `idle`)
